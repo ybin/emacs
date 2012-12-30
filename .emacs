@@ -16,7 +16,7 @@
 ;; set window size when startup
 (when window-system
   (setq default-frame-alist
-  '((height . 35) (width . 130))))
+	'((height . 35) (width . 130))))
 ;; set some other default values
 (set-default-font "YaHei Consolas Hybrid-10")
 (setq default-directory "E:/Emacs")
@@ -49,6 +49,15 @@
 
 ;; show parenthesis ()
 (show-paren-mode t)
+
+;; show function name in status bar
+(which-func-mode t)
+
+;; move text like eclipse
+(add-to-list 'load-path
+	     "~/.emacs.d/plugins/move-text")
+(require 'move-text)
+(move-text-default-bindings)
 ;;============ require minor modes end ============
 
 
@@ -146,41 +155,50 @@ otherwise, copy & paste the selected region."
     ; move the selected region
     (progn
       (setq r-start (region-beginning)
-	    r-end (region-end))
+	    r-end (region-end)
+	    need-transpose nil
+	    line (1+ (count-lines 1 (point)))
+	    column (current-column))
       (deactivate-mark)
       (goto-char r-start)
-      (setq new-start (line-beginning-position))
+      (setq start-1 (line-beginning-position))
       (goto-char r-end)
-      (setq new-end (line-end-position))
-      (setq region-content (delete-and-extract-region new-start new-end))
-      (if (< N 0)
+      (setq end-1 (line-end-position))
+      (if (and (> N 0) (< end-1 (point-max)))
 	  (progn
-	    (goto-char new-start)
-	    (forward-line -2))
-	(progn
-	  (goto-char new-end)
-	  (forward-line 1)))
-      (print region-content)
-      ;; (end-of-line)
-      ;; (newline)
-      (insert region-content))))
-
-
-(defun my-move-line-or-region-up(N)
+	    (goto-char end-1)
+	    (forward-line 1)
+	    (setq start-2 (line-beginning-position)
+		  end-2 (line-end-position)
+		  need-transpose t)))
+      (if (and (< N 0) (> start-2 (point-min)))
+	  (progn
+	    (goto-char start-1)
+	    (forward-line -1)
+	    (setq line (- line 2))
+	    (setq start-2 (line-beginning-position)
+		  end-2 (line-end-position)
+		  need-transpose t)))
+      (if need-transpose
+	  (progn
+	    (transpose-regions start-1 end-1 start-2 end-2 t)
+	    (goto-line line)
+	    (move-to-column column))))))
+(defun my-move-line-or-region-up()
   ""
-  (interactive "*p")
+  (interactive)
   (my-move-line-or-region -1))
-(defun my-move-line-or-region-down(N)
+(defun my-move-line-or-region-down()
   ""
-  (interactive "*p")
+  (interactive)
   (my-move-line-or-region 1))
-(global-set-key [M-up] 'my-move-line-or-region-up)
-(global-set-key [M-down] 'my-move-line-or-region-down)
+; (global-set-key [M-up] 'my-move-line-or-region-up)
+; (global-set-key [M-down] 'my-move-line-or-region-down)
 
 ;; aaaaaaaaaaaaaaaaaaaaaaaaa
 ;; bbbbbbbbbbbbbbbbbbbbbbbbb
 ;; ccccccccccccccccccccccccc
-
+;; ddddddddddddddddddddddddd
 
 (defun my-delete-region()
   ""

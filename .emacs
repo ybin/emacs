@@ -58,6 +58,11 @@
 	     "~/.emacs.d/plugins/move-text")
 (require 'move-text)
 (move-text-default-bindings)
+
+;; save place when exit or switch buffers
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file "~/.emacs.d/plugins/savepleces")
 ;;============ require minor modes end ============
 
 

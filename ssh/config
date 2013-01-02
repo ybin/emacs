@@ -1,0 +1,4 @@
+Host github.com
+	HostName github.com
+	User git
+	IdentityFile F:\emacs\github\ssh\id_rsa

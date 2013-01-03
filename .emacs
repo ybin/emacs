@@ -73,6 +73,17 @@
       (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist
       (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
+;; undo tree mode
+;; C-x u : enter undo-tree-visualizer-mode
+;; n,p : move up/down
+;; b,f : move between branches
+;; t   : show timestamp
+;; q   : quit
+(add-to-list 'load-path
+	     "~/.emacs.d/plugins/undo-tree-mode")
+(require 'undo-tree)
+(global-undo-tree-mode)
 ;;============ require minor modes end ============
 
 

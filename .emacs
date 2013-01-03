@@ -85,6 +85,11 @@
 	     "~/.emacs.d/plugins/undo-tree-mode")
 (require 'undo-tree)
 (global-undo-tree-mode)
+
+;; git-emacs mode
+(add-to-list 'load-path
+	     "~/.emacs.d/plugins/git-emacs")
+(require 'git-emacs)
 ;;============ require minor modes end ============
 
 

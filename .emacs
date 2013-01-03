@@ -34,6 +34,7 @@
 ;; show the line number
 (require 'linum)
 (global-linum-mode t)
+(column-number-mode t)
 
 ;; use yasnippet plugin
 (add-to-list 'load-path
@@ -246,6 +247,11 @@ otherwise, copy & paste the selected region."
       (my-delete-region)
     (delete-char 1)))
 (global-set-key (kbd "C-d") 'my-new-ctrl-d)
+
+(defun show-file-name ()
+  "Show the full path file name in the minibuffer."
+  (interactive)
+  (message (buffer-file-name)))
     
 ;;============ key banding end ============
 

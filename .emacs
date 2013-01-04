@@ -120,6 +120,13 @@
   (newline-and-indent))
 (global-set-key (kbd "C-j") 'my-newline-and-indent)
 
+(defun my-open-line (&optional N)
+  "open a newline before current line"
+  (interactive "*p")
+  (beginning-of-line)
+  (open-line N))
+(global-set-key (kbd "C-o") 'my-open-line)
+
 ;; mode cursor among multiple windows
 ; (global-set-key [M-left] 'windmove-left)
 ; (global-set-key [M-up] 'windmove-up)

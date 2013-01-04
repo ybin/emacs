@@ -41,6 +41,8 @@
 	     "~/.emacs.d/plugins/yasnippet/")
 (require 'yasnippet)
 (yas-global-mode 1)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/plugins/yasnippet/yasnippets"))
 
 ;; use python-mode instead of the builtin python-mode
 (add-to-list 'load-path

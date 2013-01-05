@@ -1,3 +1,8 @@
+;; modify the shortcut in Windows System:
+;; /path/to/emacs.exe => /path/to/runemacs.exe
+;; otherwide there will be an console window
+;; titled as "emacs.exe" which is a console program.
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.

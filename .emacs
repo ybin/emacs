@@ -283,7 +283,7 @@ otherwise, copy & paste the selected region."
 ; clipboard-kill-region ;; cut selection from Emacs to clipboard
 ; clipboard-yank ;; paste from clipboard to Emacs
 
-;; 设置编码格式
+;; encoding file
 ; set-buffer-file-coding-system ;; change coding system of current buffer
 ; revert-buffer-with-coding-system ;; revert current buffer with coding system
 ; describe-coding-system ;; describe the current coding system

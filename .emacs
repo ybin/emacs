@@ -33,7 +33,7 @@
 ;; do NOT show menu bar
 ;; (menu-bar-mode nil)
 ;; show the full path of current buffer
-(setq frame-title-format "Emacs@ %f")
+(setq frame-title-format "%b - %f")
 ;;============ GUI interface end ============
 
 

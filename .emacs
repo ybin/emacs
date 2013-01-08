@@ -101,6 +101,13 @@
 (add-to-list 'load-path
 	     "~/.emacs.d/plugins/git-emacs")
 (require 'git-emacs)
+
+;; enable url proxy
+(url-handler-mode t)
+(setq url-proxy-services
+      '(("http" . "xxx:xx")
+	("ftp" . "xxx:xx")
+	("no_proxy" . "xxx")))
 ;;============ require minor modes end ============
 
 

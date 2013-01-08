@@ -27,6 +27,8 @@
 (tool-bar-mode nil)
 ;; do NOT show menu bar
 ;; (menu-bar-mode nil)
+;; highlight current line
+(global-hl-line-mode t)
 ;;============ GUI interface end ============
 
 

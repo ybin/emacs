@@ -1,3 +1,8 @@
+;; modify the shortcut in Windows System:
+;; /path/to/emacs.exe => /path/to/runemacs.exe
+;; otherwide there will be an console window
+;; titled as "emacs.exe" which is a console program.
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
@@ -29,6 +34,8 @@
 ;; (menu-bar-mode nil)
 ;; highlight current line
 (global-hl-line-mode t)
+;; show the full path of current buffer
+(setq frame-title-format "%b - %f")
 ;;============ GUI interface end ============
 
 
@@ -43,6 +50,8 @@
 	     "~/.emacs.d/plugins/yasnippet/")
 (require 'yasnippet)
 (yas-global-mode 1)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/plugins/yasnippet/yasnippets"))
 
 ;; use python-mode instead of the builtin python-mode
 (add-to-list 'load-path
@@ -96,6 +105,12 @@
 
 
 ;;============ customize key banding ============
+(defun cur()
+  "open directory where the current buffer file is."
+  (interactive)
+  (if buffer-file-name
+      (shell-command "explorer.exe .")))
+
 (defun my-comment-dwim(&optional arg)
   "comment/uncomment the current line or comment the selected region"
   (interactive "*p") 
@@ -117,6 +132,13 @@
   (end-of-line)
   (newline-and-indent))
 (global-set-key (kbd "C-j") 'my-newline-and-indent)
+
+(defun my-open-line (&optional N)
+  "open a newline before current line"
+  (interactive "*p")
+  (beginning-of-line)
+  (open-line N))
+(global-set-key (kbd "C-o") 'my-open-line)
 
 ;; mode cursor among multiple windows
 ; (global-set-key [M-left] 'windmove-left)
@@ -269,7 +291,7 @@ otherwise, copy & paste the selected region."
 ; clipboard-kill-region ;; cut selection from Emacs to clipboard
 ; clipboard-yank ;; paste from clipboard to Emacs
 
-;; 设置编码格式
+;; encoding file
 ; set-buffer-file-coding-system ;; change coding system of current buffer
 ; revert-buffer-with-coding-system ;; revert current buffer with coding system
 ; describe-coding-system ;; describe the current coding system

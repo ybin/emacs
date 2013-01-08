@@ -103,6 +103,12 @@
 
 
 ;;============ customize key banding ============
+(defun cur()
+  "open directory where the current buffer file is."
+  (interactive)
+  (if buffer-file-name
+      (shell-command "explorer.exe .")))
+
 (defun my-comment-dwim(&optional arg)
   "comment/uncomment the current line or comment the selected region"
   (interactive "*p") 

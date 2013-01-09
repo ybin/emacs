@@ -24,7 +24,7 @@
 	'((height . 35) (width . 130))))
 ;; set some other default values
 (set-default-font "YaHei Consolas Hybrid-10")
-(setq default-directory "E:/Emacs")
+(setq default-directory "E:/A_Disk_Space/Emacs/")
 (setq make-backup-files nil)
 ;; do NOT show startup splash
 (setq inhibit-startup-message t)
@@ -108,6 +108,14 @@
       '(("http" . "xxx:xx")
 	("ftp" . "xxx:xx")
 	("no_proxy" . "xxx")))
+
+(add-to-list 'load-path
+ 	     "~/.emacs.d/plugins/marmalade")
+(require 'package)
+(add-to-list 'package-archives
+	     '("marmalade" .
+	       "http://marmalade-repo.org/packages/"))
+(package-initialize)
 ;;============ require minor modes end ============
 
 
@@ -123,7 +131,7 @@
   (interactive "*p") 
   (comment-normalize-vars)
   (if (and (not (region-active-p)) (not (looking-at "[ \t]*$")))
-      (comment-or-uncomment-region (line-beginning-position) (line-end-position))
+	(comment-or-uncomment-region (line-beginning-position) (line-end-position))
     (comment-dwim arg)))
 (global-set-key (kbd "M-;") 'my-comment-dwim)
 
@@ -298,7 +306,7 @@ otherwise, copy & paste the selected region."
 ; clipboard-kill-region ;; cut selection from Emacs to clipboard
 ; clipboard-yank ;; paste from clipboard to Emacs
 
-;; encoding file
+;; file encoding system
 ; set-buffer-file-coding-system ;; change coding system of current buffer
 ; revert-buffer-with-coding-system ;; revert current buffer with coding system
 ; describe-coding-system ;; describe the current coding system

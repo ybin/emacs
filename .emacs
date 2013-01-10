@@ -124,7 +124,10 @@
   "open directory where the current buffer file is."
   (interactive)
   (if buffer-file-name
-      (shell-command "explorer.exe .")))
+      (shell-command (concat
+		      "explorer.exe "
+		      (subst-char-in-string ?/ ?\\
+					    (file-name-directory buffer-file-name))))))
 
 (defun my-comment-dwim(&optional arg)
   "comment/uncomment the current line or comment the selected region"

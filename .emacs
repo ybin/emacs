@@ -36,6 +36,11 @@
 (global-hl-line-mode t)
 ;; show the full path of current buffer
 (setq frame-title-format "%b - %f")
+;; set scroll behavior
+(setq scroll-step 1
+      ; scroll-conservatively 100000
+      ; auto-window-vscroll nil
+      scroll-margin 2)
 ;;============ GUI interface end ============
 
 

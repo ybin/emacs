@@ -41,8 +41,11 @@
       ; scroll-conservatively 100000
       ; auto-window-vscroll nil
       scroll-margin 2)
+;; enable copy-paste between emacs and system clipboard
+; (setq x-select-enable-clipboard t)
+;; truncate lines, do not fold line automatically.
+(toggle-truncate-lines t)
 ;;============ GUI interface end ============
-
 
 ;;============ require minor modes ============
 ;; show the line number

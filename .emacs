@@ -117,6 +117,7 @@
 	("ftp" . "xxx:xx")
 	("no_proxy" . "xxx")))
 
+;; package manager
 (add-to-list 'load-path
  	     "~/.emacs.d/plugins/marmalade")
 (require 'package)
@@ -124,6 +125,13 @@
 	     '("marmalade" .
 	       "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+;; zencoding mode
+(add-to-list 'load-path
+	     "~/.emacs.d/plugins/zencoding")
+(require 'zencoding-mode)
+(add-hook 'sgml-mode-hook
+	  'zencoding-mode)
 ;;============ require minor modes end ============
 
 

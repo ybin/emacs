@@ -14,7 +14,17 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- )
+ '(buffer-menu-buffer ((t (:foreground "blue" :weight bold))))
+ '(completions-first-difference ((t (:inherit bold :foreground "red"))))
+ '(font-lock-comment-face ((((class color) (min-colors 88) (background light)) (:foreground "blue1"))))
+ '(font-lock-function-name-face ((((class color) (min-colors 8)) (:background "gray" :foreground "blue" :weight bold))))
+ '(font-lock-keyword-face ((((class color) (min-colors 8)) (:foreground "red" :weight bold))))
+ '(font-lock-variable-name-face ((((class color) (min-colors 8)) (:foreground "magenta"))))
+ '(info-menu-header ((((type tty pc)) (:foreground "red" :underline t))))
+ '(info-title-1 ((((type tty pc) (class color) (background light)) (:foreground "green"))))
+ '(info-title-2 ((((type tty pc) (class color)) (:foreground "lightblue"))))
+ '(info-title-3 ((((type tty pc) (class color)) nil)))
+ '(makefile-targets ((t (:background "black" :foreground "white" :weight bold)))))
 
 
 ;;============ customize GUI interface ============
@@ -45,6 +55,7 @@
 ; (setq x-select-enable-clipboard t)
 ;; truncate lines, do not fold line automatically.
 (toggle-truncate-lines t)
+(global-font-lock-mode t)
 ;;============ GUI interface end ============
 
 ;;============ require minor modes ============
@@ -106,9 +117,9 @@
 (global-undo-tree-mode)
 
 ;; git-emacs mode
-(add-to-list 'load-path
-	     "~/.emacs.d/plugins/git-emacs")
-(require 'git-emacs)
+; (add-to-list 'load-path
+; 	     "~/.emacs.d/plugins/git-emacs")
+; (require 'git-emacs)
 
 ;; enable url proxy
 (url-handler-mode t)
@@ -132,6 +143,15 @@
 (require 'zencoding-mode)
 (add-hook 'sgml-mode-hook
 	  'zencoding-mode)
+(add-hook 'sgml-mode-hook
+	  '(lambda ()
+	     (setq indent-tabs-mode t)
+	     (setq tab-width 4)))
+
+;; (add-to-list 'load-path
+	     ;; "~/.emacs.d/plugins/indent-hint")
+;; (load-file "~/.emacs.d/plugins/indent-hint/indent-hint.el")
+;; (indent-hint-mode)
 ;;============ require minor modes end ============
 
 

@@ -54,7 +54,8 @@
 ;; enable copy-paste between emacs and system clipboard
 ; (setq x-select-enable-clipboard t)
 ;; truncate lines, do not fold line automatically.
-(toggle-truncate-lines t)
+;; (toggle-truncate-lines t)
+(set-default 'truncate-lines t)
 (global-font-lock-mode t)
 ;;============ GUI interface end ============
 

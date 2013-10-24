@@ -52,12 +52,13 @@
       ; auto-window-vscroll nil
       scroll-margin 2)
 ;; enable copy-paste between emacs and system clipboard
-; (setq x-select-enable-clipboard t)
+(setq x-select-enable-clipboard t)
 ;; truncate lines, do not fold line automatically.
 ;; (toggle-truncate-lines t)
 (set-default 'truncate-lines t)
 (global-font-lock-mode t)
 ;;============ GUI interface end ============
+
 
 ;;============ require minor modes ============
 ;; show the line number
@@ -125,17 +126,20 @@
 ;; enable url proxy
 (url-handler-mode t)
 (setq url-proxy-services
-      '(("http" . "xxx:xx")
-	("ftp" . "xxx:xx")
-	("no_proxy" . "xxx")))
+      '(("http" . "proxyxa.zte.com.cn:80")
+	("ftp" . "proxyxa.zte.com.cn:80")))
 
 ;; package manager
 (add-to-list 'load-path
  	     "~/.emacs.d/plugins/marmalade")
 (require 'package)
-(add-to-list 'package-archives
-	     '("marmalade" .
-	       "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives
+;	     '("marmalade" .
+;	       "http://marmalade-repo.org/packages/"))
+(setq package-archives '(
+			 ("gnu" . "http://elpa.gnu.org/packages/")
+			 ("melpa" . "http://melpa.milkbox.net/packages/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")))
 (package-initialize)
 
 ;; zencoding mode
@@ -336,7 +340,13 @@ otherwise, copy & paste the selected region."
   "Show the full path file name in the minibuffer."
   (interactive)
   (message (buffer-file-name)))
-    
+
+(defun my-eshell-mode-hook ()
+  (yas-minor-mode -1))
+
+(add-hook 'eshell-mode-hook
+	  'my-eshell-mode-hook)
+
 ;;============ key banding end ============
 
 

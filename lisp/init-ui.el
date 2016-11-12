@@ -10,9 +10,9 @@
     (set-fontset-font (frame-parameter nil 'font)
 		      charset (font-spec :family "Microsoft Yahei" :size 12))))
 
-;; 设置高亮当前行的颜色
+;; 璁剧疆楂樹寒褰撳墠琛岀殑棰滆壊
 (set-face-background 'hl-line "#3e4446")
-;; 同时保持语法高亮不变
+;; 鍚屾椂淇濇寔璇硶楂樹寒涓嶅彉
 
 (set-face-foreground 'highlight nil)
 

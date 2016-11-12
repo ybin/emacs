@@ -42,9 +42,9 @@
         (package-install pkg))))
 
 
-;;;;;; ²å¼şÅäÖÃ ;;;;;;
+;;;;;; æ’ä»¶é…ç½® ;;;;;;
 
-;; ¿ªÆôÈ«¾ÖCompany²¹È«£¬ĞèÒªCompany°ü
+;; å¼€å¯å…¨å±€Companyè¡¥å…¨ï¼Œéœ€è¦CompanyåŒ…
 (global-company-mode)
 
 ;; add-hooks

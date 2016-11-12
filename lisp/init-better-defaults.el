@@ -30,42 +30,42 @@ when it inserts comment at the end of the line. "
 
 
 
-;;;;;; EmacsÄ¬ÈÏÌá¹©µÄ¹¦ÄÜÉè¶¨ ;;;;;;
+;;;;;; Emacsé»˜è®¤æä¾›çš„åŠŸèƒ½è®¾å®š ;;;;;;
 
-;; ¹Ø±Õ¹¤¾ßÀ¸
+;; å…³é—­å·¥å…·æ 
 (tool-bar-mode -1)
-;; ¹Ø±ÕÆô¶¯Ê±µÄ°ïÖúÒ³Ãæ
+;; å…³é—­å¯åŠ¨æ—¶çš„å¸®åŠ©é¡µé¢
 (setq inhibit-startup-message t)
-;; ¹Ø±Õ¹ö¶¯Ìõ
+;; å…³é—­æ»šåŠ¨æ¡
 (scroll-bar-mode -1)
-;; ÉèÖÃÄ¬ÈÏ´°¿Ú´óĞ¡
+;; è®¾ç½®é»˜è®¤çª—å£å¤§å°
 (when window-system (set-frame-size (selected-frame) 110 35))
-;; ÏÔÊ¾ĞĞºÅ
+;; æ˜¾ç¤ºè¡Œå·
 (global-linum-mode)
-;; ¹Ø±Õ±¸·İÎÄ¼ş£¬Ê¹ÓÃ°æ±¾¿ØÖÆÈ¥°É
+;; å…³é—­å¤‡ä»½æ–‡ä»¶ï¼Œä½¿ç”¨ç‰ˆæœ¬æ§åˆ¶å»å§
 (setq make-backup-files t)
-;; ¹Ø±Õ×Ô¶¯±£´æÎÄ¼ş
+;; å…³é—­è‡ªåŠ¨ä¿å­˜æ–‡ä»¶
 (setq auto-save-default nil)
-;; Ñ¡ÖĞÒ»¶ÎÎÄ×ÖºóÊäÈëĞÂÎÄ×Ö½øĞĞÌæ»»¶ø²»ÊÇ×·¼Ó
+;; é€‰ä¸­ä¸€æ®µæ–‡å­—åè¾“å…¥æ–°æ–‡å­—è¿›è¡Œæ›¿æ¢è€Œä¸æ˜¯è¿½åŠ 
 (delete-selection-mode t)
-;; ¸ßÁÁµ±Ç°ĞĞ
+;; é«˜äº®å½“å‰è¡Œ
 (global-hl-line-mode t)
-;; ×Ô¶¯¼ÓÔØÎÄ¼ş£¨Èç¹ûÎÄ¼ş±»ÆäËûÈí¼şĞŞ¸ÄÁË£©
+;; è‡ªåŠ¨åŠ è½½æ–‡ä»¶ï¼ˆå¦‚æœæ–‡ä»¶è¢«å…¶ä»–è½¯ä»¶ä¿®æ”¹äº†ï¼‰
 (global-auto-revert-mode t)
-;; À¨ºÅ²¹È«¡¢Ëõ½ø¡¢×Ô¶¯²åÈëĞÂĞĞ
-;; Emacs 24.4ÔÙÊ¹ÓÃelectric-pair£¬Ö®Ç°µÄ°æ±¾Ê¹ÓÃautopair
+;; æ‹¬å·è¡¥å…¨ã€ç¼©è¿›ã€è‡ªåŠ¨æ’å…¥æ–°è¡Œ
+;; Emacs 24.4å†ä½¿ç”¨electric-pairï¼Œä¹‹å‰çš„ç‰ˆæœ¬ä½¿ç”¨autopair
 ;(electric-pair-mode t)
 ;(electric-indent-mode t)
 ;(electric-layout-mode t)
-;; ÖÇÄÜ'C-a'
+;; æ™ºèƒ½'C-a'
 (global-set-key [home] 'smart-beginning-of-line)
 (global-set-key "\C-a" 'smart-beginning-of-line)
 ;; Do What I Mean for current line
 (global-set-key "\M-;" 'my-comment-dwim)
-;; Æ¥ÅäÀ¨ºÅ¸ßÁÁ£¬ÅäºÏ highlight-parentheses ²å¼şÊ¹ÓÃ¸üÃÀºÃ
+;; åŒ¹é…æ‹¬å·é«˜äº®ï¼Œé…åˆ highlight-parentheses æ’ä»¶ä½¿ç”¨æ›´ç¾å¥½
 (show-paren-mode t)
-;; ÏÔÊ¾ÁĞºÅ
-(column-number-mode t) ; Í¬Àí£¬ÏÔÊ¾ÁĞºÅ(default): (line-number-mode t)
+;; æ˜¾ç¤ºåˆ—å·
+(column-number-mode t) ; åŒç†ï¼Œæ˜¾ç¤ºåˆ—å·(default): (line-number-mode t)
 
 
 (provide 'init-better-defaults)

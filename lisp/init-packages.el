@@ -5,11 +5,13 @@
 
 
 ;; package configuration
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  (add-to-list 'package-archives
-	       '("melpa-stable" . "http://melpa.org/packages/") t))
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa" . "https://www.mirrorservice.org/sites/stable.melpa.org/packages/") t)
+(when (< emacs-major-version 24)
+  ;; For important compatibility libraries like cl-lib
+  (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
 
 ;; cl - common lisp extension
 (require 'cl)

@@ -66,6 +66,8 @@ when it inserts comment at the end of the line. "
 (show-paren-mode t)
 ;; 显示列号
 (column-number-mode t) ; 同理，显示列号(default): (line-number-mode t)
+;; line truncate turn on
+(set-default 'truncate-lines t)
 
 
 (provide 'init-better-defaults)

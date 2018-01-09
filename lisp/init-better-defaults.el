@@ -31,13 +31,13 @@ when it inserts comment at the end of the line. "
 
 
 ;;;;;; Emacs默认提供的功能设定 ;;;;;;
+(if (and (eq system-type 'windows-nt) (not (getenv "MSYSTEM")))
+  (progn
+    (scroll-bar-mode -1)
+    (tool-bar-mode -1)))
 
-;; 关闭工具栏
-(tool-bar-mode -1)
 ;; 关闭启动时的帮助页面
 (setq inhibit-startup-message t)
-;; 关闭滚动条
-(scroll-bar-mode -1)
 ;; 设置默认窗口大小
 (when window-system (set-frame-size (selected-frame) 110 35))
 ;; 显示行号
@@ -68,6 +68,8 @@ when it inserts comment at the end of the line. "
 (column-number-mode t) ; 同理，显示列号(default): (line-number-mode t)
 ;; line truncate turn on
 (set-default 'truncate-lines t)
+;; 设置默认文件编码
+(set-default-coding-systems 'utf-8-unix)
 
 
 (provide 'init-better-defaults)
